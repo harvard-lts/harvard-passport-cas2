@@ -6,14 +6,10 @@ const https = require('https');
 const parseXmlString = require('xml2js').parseString;
 const processors = require('xml2js/lib/processors');
 
-exports.printMsg = function () {
-  console.log("This is a message from the demo package ABC");
-}
-
 /**
  * `Strategy` constructor.
  *
- * The cas-2 strategy redirects the login request to a CAS server,
+ * The cas2 strategy redirects the login request to a CAS server,
  * and after the user logs in the CAS server returns a ticket.
  * The strategy then passes the ticket with the service url
  * to the CAS server for validation,
@@ -55,7 +51,7 @@ function Strategy(options, verify) {
   // Call strategy
   passport.Strategy.call(this);
 
-  this.name = 'cas-2';
+  this.name = 'cas2';
   this._verify = verify;
   this._passReqToCallback = options.passReqToCallback;
 
