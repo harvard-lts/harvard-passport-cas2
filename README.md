@@ -1,4 +1,4 @@
-# passport-cas
+# @harvard-library/passport-cas2-strategy
 
 A CAS2 authentication strategy for [PassportJS](http://www.passportjs.org/) authentication middleware. This code was written based on the code in the [passport-cas](https://github.com/sadne/passport-cas) module and has been adapted specifically for Harvard Library.
 
