@@ -6,7 +6,6 @@ services:
     container_name: harvard-passport-cas2
     build:
       context: .
-      #dockerfile: Dockerfile
     tty: true
     volumes:
       - './passport-cas2-strategy/:/home/node/app'
