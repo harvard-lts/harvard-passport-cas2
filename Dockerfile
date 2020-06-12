@@ -1,11 +1,11 @@
-### Local development only ###
+### Image to run npm commands ###
 
 FROM node:12.16-alpine
 
 # Install bash
 RUN apk add --no-cache bash && apk add curl
 
-# Install quickthumb dependencies
+# Install dependencies
 RUN apk add --no-cache file
 RUN apk --update add git
 
@@ -17,8 +17,5 @@ WORKDIR /home/node/app
 
 # Copy code
 COPY . /home/node/app
-
-# Expose ports
-#EXPOSE 12881:3000
 
 RUN npm install

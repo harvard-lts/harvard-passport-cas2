@@ -187,8 +187,7 @@ Strategy.prototype.authenticate = function (req, options) {
   try {
     // Send a GET request to the service validation URL
     const request = https.get(serviceValidateUrl, (response) => {
-      console.log(`STATUS: ${response.statusCode}`);
-      console.log(`HEADERS: ${JSON.stringify(response.headers)}`);
+      console.log(`Passport cas2 service validation response status code: ${response.statusCode}`);
 
       // Set encoding
       response.setEncoding('utf8');
