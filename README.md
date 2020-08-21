@@ -7,7 +7,7 @@ Read the documentation for using this package in a NodeJS application.
 # Package Updates
 To make updates to this package, update the code as required, and then publish the changes to the npm repository. Read the official npm documentation for the full instructions on [publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages).
 
-Optionally, this project has a basic docker image with NodeJs installed to run the npm commands.
+Optionally, this project has a basic docker image with NodeJS installed to run the npm commands.
 
 ### Update package json version
 Update the package.json version. The version number must not exist in the npm repository already.
