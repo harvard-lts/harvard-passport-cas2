@@ -145,11 +145,6 @@ util.inherits(Strategy, passport.Strategy);
 Strategy.prototype.authenticate = function (req, options) {
   options = options || {};
 
-  // Create the SSO login URL
-  let loginUrl = new Url(this.ssoLoginUrl, true);
-  // Add service url as a query parameter
-  loginUrl.query.service = this.appServiceUrl;
-
   /**
    * Check if a ticket has been sent back from the CAS server,
    * if the user has not logged in yet, this parmater will be empty
@@ -159,9 +154,21 @@ Strategy.prototype.authenticate = function (req, options) {
    */
   this.ticket = req.query['ticket'];
 
+  // Generate service url
+  this.serviceUrl = new Url(this.appServiceUrl, true);
+
+  // Add session ID as a query parameter if it exists
+  if (req.query['sessionId']) {
+    this.serviceUrl.query.sessionId = req.query['sessionId'];
+  }
+
   // If no ticket is in the query parameter
   if (!this.ticket) {
-    // Redirect to the cas login URL to get the ticket
+    // Create the SSO login URL
+    let loginUrl = new Url(this.ssoLoginUrl, true);
+    // Add service url as a query parameter
+    loginUrl.query.service = this.serviceUrl;
+    // Redirect to the CAS login URL to get the ticket
     return this.redirect(loginUrl);
   }
 
@@ -177,7 +184,7 @@ Strategy.prototype.authenticate = function (req, options) {
 
   // Create the validation query string with ticket and service request parameters
   const validateQueryString = qs.stringify({
-    service: this.appServiceUrl,
+    service: this.serviceUrl,
     ticket: this.ticket
   });
 
