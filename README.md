@@ -1,6 +1,10 @@
 # @harvard-library/passport-cas2-strategy
+Git repository
+[https://github.com/harvard-library/harvard-passport-cas2](https://github.com/harvard-library/harvard-passport-cas2)
 
 # Package Implementation
+
+### Implementing in a NodeJS application
 Read the documentation for using this package in a NodeJS application.
 [@harvard-library/passport-cas2-strategy](https://github.com/ktamaral/harvard-passport-cas2/blob/master/passport-cas2-strategy/README.md)
 
