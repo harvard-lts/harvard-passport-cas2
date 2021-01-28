@@ -70,6 +70,7 @@ function Strategy(options, verify) {
       'trim': true,
       'normalize': true,
       'explicitArray': false,
+      // Set all property names to lower case
       'tagNameProcessors': [processors.normalize, processors.stripPrefix]
     };
 
@@ -195,6 +196,14 @@ Strategy.prototype.authenticate = function (req, options) {
     // Send a GET request to the service validation URL
     const request = https.get(serviceValidateUrl, (response) => {
       console.log(`Passport cas2 service validation response status code: ${response.statusCode}`);
+      /**
+       * Log full response from the CAS server
+       * Warning: CONFIDENTIAL information may be printed to the logs
+       * Do not enable this option in production
+       */
+      if (process.env.CAS2_LOG_RESPONSE) {
+        console.log(response);
+      }
 
       // Set encoding
       response.setEncoding('utf8');

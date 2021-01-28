@@ -25,8 +25,44 @@ docker exec -it harvard-passport-cas2 bash
 ```
 
 ### Publish updated package
+
+Note: Publish the updated package to the dev project and test it before publishing to the production project.
+
 ```
 npm login
 npm publish --access public
 ```
 
+##### Production project
+
+###### package.json
+```
+"name": "@harvard-library/passport-cas2-strategy"
+```
+
+###### cas2-strategy.js
+```
+const Cas2Strategy = require('@harvard-library/passport-cas2-strategy').Strategy;
+```
+
+##### Dev project
+
+###### package.json
+```
+"name": "@harvard-library/passport-cas2-strategy-dev"
+```
+
+###### cas2-strategy.js
+```
+const Cas2Strategy = require('@harvard-library/passport-cas2-strategy-dev').Strategy;
+```
+
+### Environment variables
+
+To log the full response from the CAS server, set the enviornment variable `CAS2_LOG_RESPONSE` to true. 
+
+**Warning: CONFIDENTIAL information may be printed to the logs. Do not enable this option in production.**
+
+```
+CAS2_LOG_RESPONSE=true
+```
