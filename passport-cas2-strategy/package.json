@@ -1,5 +1,5 @@
 {
-  "name": "@harvard-library/passport-cas2-strategy",
+  "name": "@harvard-library/passport-cas2-strategy-dev",
   "version": "2.0.1",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "https": "^1.0.0",
     "passport-strategy": "^1.0.0",
     "query-string": "^6.11.1",
-    "url-parse": "^1.4.7",
+    "url-parse": "^1.5.9",
     "util": "^0.12.2",
     "xml2js": "^0.4.23"
   },
